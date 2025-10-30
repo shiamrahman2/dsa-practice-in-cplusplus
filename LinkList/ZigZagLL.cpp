@@ -98,7 +98,8 @@ public:
         return slow; // Return head of right half
     }
     // Rearrange a linked list in zig-zag (1 → n → 2 → n-1 → 3 → n-2 ...) pattern
-    /*
+/*
+
 Purpose:
 To rearrange a linked list in a zig-zag pattern like
 1 → n → 2 → n-1 → 3 → n-2 → ...
@@ -132,6 +133,7 @@ Step-by-step explanation:
 Complexity:
 - Time Complexity: O(n)
 - Space Complexity: O(1)
+
 */
 
 Node* zigZagLL(Node* head)
