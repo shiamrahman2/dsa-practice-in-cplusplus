@@ -19,9 +19,10 @@ int main()
     cout<<ll.size();// return size of linked list
     cout<<"head->"<<ll.front()<<endl;
     cout<<"tail->"<<ll.back()<<endl;
-    ll.pop_front();
-    printList(ll);
-    ll.pop_back();
+    auto it=ll.begin();
+    advance(it,3);
+    ll.insert(it,7,9);
+
     printList(ll);
     return 0;
 }
