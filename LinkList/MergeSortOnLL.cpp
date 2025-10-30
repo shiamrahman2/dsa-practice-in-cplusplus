@@ -224,62 +224,86 @@ public:
             prev->next = NULL; // remove cycle
         }
     }
+    // Merge two sorted linked lists into a single sorted list
     Node *merge(Node *left, Node *right)
     {
-        List ans;
-        Node *i = left;
-        Node *j = right;
+        List ans;        // Temporary list to store merged nodes
+        Node *i = left;  // Pointer to traverse left list
+        Node *j = right; // Pointer to traverse right list
+
+        // Merge nodes while both lists have elements
         while (i != NULL && j != NULL)
         {
             if (i->data < j->data)
             {
-                ans.push_back(i->data);
-                i = i->next;
+                ans.push_back(i->data); // Add smaller node to merged list
+                i = i->next;            // Move left pointer forward
             }
             else
             {
-                ans.push_back(j->data);
-                j = j->next;
+                ans.push_back(j->data); // Add smaller node to merged list
+                j = j->next;            // Move right pointer forward
             }
         }
+
+        // Copy remaining nodes from left list, if any
         while (i != NULL)
         {
             ans.push_back(i->data);
             i = i->next;
         }
+
+        // Copy remaining nodes from right list, if any
         while (j != NULL)
         {
             ans.push_back(j->data);
             j = j->next;
         }
-        return ans.head;
+
+        return ans.head; // Return head of merged list
     }
+
+    // Split a linked list into two halves
     Node *spliteAtRight(Node *head)
     {
-        Node *slow = head;
-        Node *fast = head;
-        Node *prev = NULL;
+        Node *slow = head; // Moves one step at a time
+        Node *fast = head; // Moves two steps at a time
+        Node *prev = NULL; // Tracks node before slow
+
+        // Find middle of the list
         while (fast != NULL && fast->next != NULL)
         {
             prev = slow;
             slow = slow->next;
             fast = fast->next->next;
         }
+
+        // Break the list into two halves
         if (prev != NULL)
         {
             prev->next = NULL;
         }
-        return slow;
+
+        return slow; // Return head of right half
     }
-    Node* mergeSort(Node *head)
+
+    // Merge Sort for linked list
+    Node *mergeSort(Node *head)
     {
+        // Base case: empty list or single node
         if (head == NULL || head->next == NULL)
         {
             return head;
         }
-        Node* rightHead = spliteAtRight(head);
-        Node* left = mergeSort(head);
-        Node* right = mergeSort(rightHead);
+
+        // Split the list into left and right halves
+        Node *rightHead = spliteAtRight(head);
+
+        // Recursively sort both halves
+        Node *left = mergeSort(head);
+        Node *right = mergeSort(rightHead);
+
+        // Merge sorted halves
         return merge(left, right);
     }
 };
