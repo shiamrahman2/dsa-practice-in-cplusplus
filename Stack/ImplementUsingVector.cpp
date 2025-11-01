@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
+template<class T>
 class Stack{
-     vector<int>vec;
+     vector<T>vec;
    public:
       void push(int value){// O(1)
         vec.push_back(value);
@@ -13,11 +14,7 @@ class Stack{
           }
         vec.pop_back();
       }
-      int top(){
-        if(isEmpty()){
-            cout<<"vector doesn't have any element"<<endl;
-            return -1;
-        }
+      T top(){
         int topInd=vec.size()-1;
         return vec[topInd];
       }
@@ -29,7 +26,7 @@ class Stack{
 };
 int main()
 {   
-    Stack s;
+    Stack<int> s;
     s.push(1);
     s.push(2);
     s.push(3);
