@@ -4,7 +4,7 @@ template<class T>
 class Stack{
      vector<T>vec;
    public:
-      void push(int value){// O(1)
+      void push(T value){// O(1)
         vec.push_back(value);
       }
       void pop(){// O(1)
