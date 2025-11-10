@@ -74,17 +74,18 @@ class List{
     tail=temp;
   }
   int helper(Node* temp,int key){
-    if(temp==NULL){
+    if(temp==NULL){// if no value Match With Key Value
         return -1;
     }
+      //base case
       if(temp->data==key){
         return 0;
       }
-      int idx=helper(temp->next,key);
+      int idx=helper(temp->next,key);// return a index value
       if(idx==-1){
-        return -1;
+        return -1;// No Change if helper return -1 bcz key isn't in the List
       }
-      return idx+1;
+      return idx+1;// Increment 1 bcz of Each Node take 1 position from initial
   }
   int searchRec(int key){
     return helper(head,key);
