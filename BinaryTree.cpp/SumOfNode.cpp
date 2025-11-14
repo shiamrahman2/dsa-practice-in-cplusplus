@@ -24,19 +24,19 @@ Node* buildTree(vector<int>nodes){
     return currNode;
 }
 
-int countNode(Node* root){
+int SumOfNode(Node* root){
     if(root==NULL){
         return 0;
     }
-    int leftCountNode=countNode(root->left);
-    int rightCountNode=countNode(root->right);
-    return leftCountNode+rightCountNode+1;
+    int leftSum=SumOfNode(root->left);
+    int rightSum=SumOfNode(root->right);
+    return leftSum+rightSum+root->data;
 }
 
 int main()
 {   
     vector<int> nodes = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
     Node* root=buildTree(nodes);
-    cout<<"Total Count Node="<<countNode(root)<<endl;
+   cout<<"Total Sum Of Tree="<<SumOfNode(root)<<endl;
     return 0;
 }
