@@ -51,14 +51,14 @@ void LevelOrder(Node* root){
 }
 void topView(Node* root){
     queue<pair<Node*,int>>Q;
-    Q.push(make_pair(root,0));// Known HD only root is 0;
+    Q.push(make_pair(root,0));  //Known HD only root is 0;
     map<int,int>m;
     while(!Q.empty()){
         pair<Node*,int> curr=Q.front();
         Q.pop();
         Node* currNode=curr.first;
         int currHD=curr.second;
-        if(m.count(currHD)==0){// if currHorizontalDistance is unique Value;
+        if(m.count(currHD)==0){  //if currHorizontalDistance is unique Value;
              m[currHD]=currNode->data;
         }
         if(currNode->left!=NULL){
@@ -79,7 +79,7 @@ int main()
 {   
     vector<int>nodes={1,2,4,-1,-1,5,-1,-1,3,4,-1,-1,6,-1,-1};
     Node* root=buildTree(nodes);
-   // LevelOrder(root);
+    LevelOrder(root);
     topView(root);
     return 0;
 }
