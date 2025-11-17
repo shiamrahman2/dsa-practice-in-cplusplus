@@ -32,7 +32,8 @@ void KthHelper(Node* root,int k,int currLevel){
     KthHelper(root->left,k,currLevel+1);
     KthHelper(root->right,k,currLevel+1);
 }
-void KthLevel(Node* root,int k){// interview question give me only two value
+void KthLevel(Node* root,int k){ 
+    // interview question give me only two value
     KthHelper(root,k,1);
 }
 int main()
