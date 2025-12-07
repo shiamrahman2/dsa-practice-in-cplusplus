@@ -24,7 +24,7 @@ Node* insert(Node* root,int val){
     }
     return root;
 }
-Node* BuildBST(int arr[],int n){
+Node* BuildBST(int arr[],int n){ // O(NlogN);
     Node* root=NULL;
     for(int i=0;i<n;i++){
         root=insert(root,arr[i]);
