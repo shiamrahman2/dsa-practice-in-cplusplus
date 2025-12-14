@@ -1,0 +1,1 @@
+graph.addEdge(5,6);
